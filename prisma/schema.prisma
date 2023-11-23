@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Color {
+  id Int @id @default(autoincrement())
+  Title String
+  HexCode String
+  Card Card[]
+}
+
+model Card {
+  id Int @id @default(autoincrement())
+  ColorId Int
+  Title String
+  Status Boolean @default(false)
+
+  // relations
+  Color Color @relation(fields: [ColorId], references: [id])
+  Task Task[]
+}
+
+model Task {
+  id Int @id
+  CardId Int
+  Title String
+  IsFinished Boolean
+
+  // relations
+  Card Card @relation(fields: [CardId], references: [id])
+}
