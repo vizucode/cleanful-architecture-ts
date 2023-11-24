@@ -1,10 +1,10 @@
 import { ErrorConstant } from "../../constants/error";
 import { ErrorHandler, UnkownHandleError } from "../../errors/error";
 import { M_Card } from "../../models/card";
-import { Repo_Card } from "../repositores";
+import { I_Repo_Card } from "../repositores";
 import {PrismaClient} from "@prisma/client"
 
-export class Card implements Repo_Card{
+export class Prisma_Card_Impl implements I_Repo_Card{
     private prismaCli: PrismaClient
 
     constructor() {

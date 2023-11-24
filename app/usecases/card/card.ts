@@ -1,13 +1,13 @@
 import { ErrorConstant } from "../../constants/error";
 import { D_Card } from "../../domains/card";
 import { ErrorHandler, UnkownHandleError } from "../../errors/error";
-import { Repo_Card } from "../../repositories/repositores";
-import { I_Card } from "../usecases";
+import { I_Repo_Card } from "../../repositories/repositores";
+import { I_Uc_Card } from "../usecases";
 
-export class UC_Card implements I_Card {
-    protected repoCard: Repo_Card
+export class Uc_Card_Impl implements I_Uc_Card {
+    protected repoCard: I_Repo_Card
 
-    constructor(RepoCardImpl: Repo_Card) {
+    constructor(RepoCardImpl: I_Repo_Card) {
         this.repoCard = RepoCardImpl
     }
 
